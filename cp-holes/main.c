@@ -3,8 +3,8 @@
 #include <fcntl.h>
 #include <stdbool.h>
 
-static const char INPUT_FILE[] = "holey_file.txt";
-static const char OUTPUT_FILE[] = "holey_file_copy.txt";
+static const char INPUT_FILE[] = "in_holey_file.txt";
+static const char OUTPUT_FILE[] = "out_holey_file.txt";
 static const int BUF_SIZE = 1024;
 
 
