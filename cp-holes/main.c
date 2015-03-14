@@ -5,22 +5,37 @@
 
 static const char INPUT_FILE[] = "in_holey_file.txt";
 static const char OUTPUT_FILE[] = "out_holey_file.txt";
-static const int BUF_SIZE = 1024;
+static const int BUF_SIZE = 1;
 
 
 bool has_holes(FILE *file_pointer) {
-    // Make sure the file has holes in it, this is really inefficient but w/e
+    /*
+    * Return True if the file (*file_pointer) contains holes
+    *
+    * Files with "holes"  are fragmented files on the file system,
+    * which means the file contents do not form a contiguous block
+    * of memory.
+    *
+    * Note: To avoid the default buffering behavior of fread() the
+    * BUF_SIZE needs to be 1 which is extremely inefficient but w/e
+    * for this exercise.
+    *
+    */
+
+    // get file size
+    long file_size;
     fseek(file_pointer, 0L, SEEK_END);
-    long file_size = ftell(file_pointer);
+    file_size = ftell(file_pointer);
     fseek(file_pointer, 0L, SEEK_SET);
 
     char buf[BUF_SIZE];
     ssize_t bytes_read;
-    int total_bytes_read, i = 0;
-    while ((bytes_read = fread(buf, BUF_SIZE, 1, file_pointer)) > 0) {
+    int total_bytes_read = 0;
+    int i = 0;
+    while ((bytes_read = fread(buf, 1, 1, file_pointer)) > 0) {
         total_bytes_read += bytes_read;
     }
-
+    total_bytes_read += 1;
     return total_bytes_read > file_size;
 }
 
