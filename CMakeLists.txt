@@ -5,3 +5,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 add_executable(cpholes cp-holes/main.c)
 add_executable(cbs callbacks/cbs.c)
+add_executable(array_of_strings arrays/array_of_strings.c)
