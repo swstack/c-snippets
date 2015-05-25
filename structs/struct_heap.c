@@ -1,3 +1,5 @@
+// Exercise for playing with structs and the heap using malloc/free
+
 #include <stdio.h>
 #include <assert.h>
 #include <stdlib.h>
@@ -44,6 +46,8 @@ void Person_destroy(struct Person *who) {
 }
 
 void Person_print(struct Person *who) {
+    // Print function where a Person struct is passed by reference using the heap
+
     printf("Name: %s\n", who->name);
     printf("\tAge: %d\n", who->age);
     printf("\tHeight: %d\n", who->height);
