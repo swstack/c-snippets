@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[]) {
 
-    // array of strings (Pointer of pointers)j
+    // array of strings (Pointer of pointers)
     // Each element in the <states> array is a pointer which is 64 or 32 bits on
     // a typical desktop
     char *states[] = {
