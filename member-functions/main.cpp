@@ -26,8 +26,9 @@ int main() {
   i1.a();  // Prints: a() called on instance id: 1
   i2.a();  // Prints: a() called on instance id: 2
 
-
-  MemberFunctionPtr ptr = &A::a;
+  // void(A::*ptr)();  // Another way to declare the pointer, without typedef
+  MemberFunctionPtr ptr;
+  ptr = &A::a;
   (i1.*ptr)();  // Prints: a() called on instance id: 1
   (i2.*ptr)();  // Prints: a() called on instance id: 2
 }
